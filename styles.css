@@ -20,6 +20,8 @@ header {
     position: sticky; 
     top: 0; 
     z-index: 1000; 
+    transition: background 0.3s ease, transform 0.3s ease;
+    
 }
 
 header:hover {
@@ -49,37 +51,43 @@ section {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Add a shadow for depth */
     color: #333; /* Text color */
     font-family: 'Arial', sans-serif; /* Font style */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.founder:hover {
+    transform: scale(1.02); 
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
+    background: linear-gradient(135deg, #e1bee7, #d1c4e9); 
 }
 
 .founder h2 {
-    font-size: 2rem; /* Larger font size for the heading */
-    color: #673ab7; /* Purple color for the heading */
+    font-size: 2rem; 
+    color: #673ab7; 
     margin-bottom: 15px;
 }
 
 .founder p {
-    font-size: 1rem; /* Standard font size for the paragraph */
-    line-height: 1.6; /* Improve readability */
-    color: #555; /* Slightly lighter text color */
+    font-size: 1rem; 
+    line-height: 1.6;
+    color: #555; 
 }
 
 .founder img {
     max-width: 100%;
     height: auto;
-    border-radius: 50%; /* Circular image */
-    border: 4px solid #673ab7; /* Purple border around the image */
+    border-radius: 50%; 
+    border: 4px solid #673ab7; 
     margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow to the image */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
 }
 
 .models-container, .engines-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
-    padding: 10px; /* Add some padding around the grid */
-    background: linear-gradient(135deg, #e0f7fa, #e1bee7); /* Subtle background color */
-    border-radius: 10px; /* Rounded corners for the container */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+    padding: 10px;
+    background: linear-gradient(135deg, #e0f7fa, #e1bee7); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 .model-item, .engine-item {
@@ -87,22 +95,22 @@ section {
     padding: 15px;
     border-radius: 8px;
     text-align: center;
-    background-color: #ffffff; /* White background for items */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
+    background-color: #ffffff; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
 .model-item:hover, .engine-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-    border-color: #673ab7; /* Highlight border with a purple shade */
-    background-color: #f3e5f5; /* Light purple background on hover */
+    border-color: #673ab7;
+    background-color: #f3e5f5; 
 }
 
 .model-item img, .engine-item img {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
-    border: 2px solid #007bff; /* Add a blue border around images */
+    border: 2px solid #007bff; 
 }
 
 @media (max-width: 600px) {
