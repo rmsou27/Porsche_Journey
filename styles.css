@@ -1,6 +1,6 @@
 /* style.css */
 body {
-    font-family: sans-serif;
+    font-family: 'Roboto', 'Arial', sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
@@ -17,11 +17,7 @@ header {
     text-transform: uppercase; 
     letter-spacing: 1px; 
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); 
-    position: sticky; 
-    top: 0; 
-    z-index: 1000; 
     transition: background 0.3s ease, transform 0.3s ease;
-    
 }
 
 header:hover {
@@ -71,16 +67,87 @@ section {
     color: #555; 
 }
 
-.founder img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 50%; 
-    border: 4px solid #673ab7; 
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+#models h2{
+    text-align: center;
 }
 
-.models-container, .engines-container {
+.models-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 10px;
+    background: linear-gradient(135deg, #e0f7fa, #e1bee7); 
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.model-item {
+    perspective: 1000px; /* Enable 3D perspective for the flip effect */
+    position: relative;
+    width: 250px; /* Set a fixed width for the card */
+    height: 300px; /* Set a fixed height for the card */
+    margin: 20px auto;
+}
+
+.model-item-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d; /* Preserve 3D effect */
+}
+
+.model-item.flipped .model-item-inner {
+    transform: rotateY(180deg); /* Flip the card */
+}
+
+.model-item-front,
+.model-item-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Hide the back side when not flipped */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add shadow for depth */
+}
+
+.model-item-front {
+    background: #ffffff; /* Front side background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.model-item-back {
+    background: #f3e5f5; /* Back side background */
+    transform: rotateY(180deg); /* Rotate the back side */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+.model-item img {
+    width: 100%; /* Make the image take up the full width of the card */
+    max-width: 250px; /* Set a maximum width to prevent excessive scaling */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 200px; /* Set a maximum height for uniformity */
+    object-fit: cover; /* Ensure the image covers the card area without distortion */
+    border-bottom: 1px solid #ddd; /* Add a separator between the image and the rest of the card */
+    display: block; /* Remove any inline spacing issues */
+    margin: 0 auto; /* Center the image horizontally */
+    border-radius: 10spx; 
+}
+
+.model-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    border-color: #673ab7;
+    background-color: #f3e5f5; 
+}
+
+.engines-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
@@ -90,7 +157,7 @@ section {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
-.model-item, .engine-item {
+ .engine-item {
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 8px;
@@ -99,22 +166,21 @@ section {
     transition: transform 0.3s ease, box-shadow 0.3s ease; 
 }
 
-.model-item:hover, .engine-item:hover {
+
+ .engine-item:hover {
     transform: translateY(-5px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     border-color: #673ab7;
     background-color: #f3e5f5; 
 }
 
-.model-item img, .engine-item img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 4px;
-    border: 2px solid #007bff; 
-}
-
 @media (max-width: 600px) {
-    .models-container, .engines-container {
+    .models-container{
+        grid-template-columns: 1fr;
+    }
+}
+@media (max-width: 600px) {
+     .engines-container {
         grid-template-columns: 1fr;
     }
 }
