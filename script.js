@@ -60,8 +60,7 @@ function populateEngines() {
                 </div>
             </div>
         `;
-
-    
+ 
         engineItem.addEventListener('click', () => {
             engineItem.classList.toggle('flipped');
         });
